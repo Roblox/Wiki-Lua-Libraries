@@ -17,6 +17,7 @@
 --		:Clear() - Clears all elements from the PriorityQueue
 --		:Print(withPriorities) - Prints out all the elements in the PriorityQueue
 --			withPriorities: If true, will print out the priorities, if false, will only output the values
+--		:Size() - Gets the number of elements in the PriorityQueue
 --		:Clone() - Creates and returns a new copy of the PriorityQueue
 
 PriorityQueue = {}
