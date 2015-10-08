@@ -1,4 +1,29 @@
 -- Type contains the following functions:
+--			:IsA(value, typeName) - Returns whether a value is of a specific type.
+--				typeName: A type name: number, string, boolean, Color3, CFrame, BrickColor, etc.
+--			:GetType(value) - Returns the type name of a value.
+--			:IsAAxes(value) - Returns whether a value is an Axes object.
+--			:IsABrickColor(value) - Returns whether a value is a BrickColor.
+--			:IsACFrame(value) - Returns whether a value is a CFrame.
+--			:IsAColor3(value) - Returns whether a value is a Color3.
+--			:IsAColorSequence(value) - Returns whether a value is a ColorSequence.
+--			:IsAEnum(value) - Returns whether the value is an Enum (*not* an EnumItem!)
+--			:IsAEnumItem(value, enum) - Returns whether a value is an EnumItem of a specific Enum.
+--				enum: The Enum to test. Must be an actual Enum (IsAEnum returns true when called with it).
+--			:IsAFaces(value) - Returns whether a value is a Faces object.
+--			:IsAInstance(value) - Returns whether a value is an Instance.
+--			:IsANumberRange(value) - Returns whether a value is a NumberRange.
+--			:IsANumberSequence(value) - Returns whether a value is a NumberSequence.
+--			:IsARay(value) - Returns whether a value is a Ray.
+--			:IsARegion3 - Returns whether a value is a Region3.
+--			:IsARegion3int16 - Returns whether a value is a Region3int16.
+--			:IsAUDim(value) - Returns whether a value is a UDim.
+--			:IsAUDim2(value) - Returns whether a value is a UDim2.
+--			:IsAVector2(value) - Returns whether a value is a Vector2.
+--			:IsAVector2int16(value) - Returns whether a value is a Vector2int16.
+--			:IsAVector3(value) - Returns whether a value is a Vector3.
+--			:IsAVector3int16(value) - Returns whether a value is a Vector3int16.
+-- All of the :IsA* methods may also be called as :Is*, meaning :IsAColor3(Color3.new()) and :IsColor3(Color3.new()) are equivalent.
 
 local Type = {} -- Returned table. Not to be confused with the Types table that contains type matchers.
 
