@@ -11,9 +11,8 @@
 --				Should accept nodes as format node = {nodeData, costSoFarTable, estimatedCostTable} where costSoFarTable and estiamtedCostTable are indexed by nodeData
 -- A Pathfinder object has the following functions:
 --		:FindPath(start, goal) - Find a path between the start and goal nodes. Returns nil if no path is found, otherwise returns path in reverse order
---
--- Note: This library requires the SortedList Standard Library. The SortedList library must be parented to this script
-local SortedList = require(script.SortedList)
+
+local SortedList = require(303863742) -- This is the Roblox Wiki asset id for the SortedList module
 
 local Pathfinder = {}
 Pathfinder.__index = Pathfinder
@@ -45,7 +44,6 @@ function Pathfinder.new(graph, estimateDistance, comparator)
 		comparator = Compare
 	end
 	setmetatable(newPathfinder, Pathfinder)
-	newPathfinder.Compare = comparator
 	newPathfinder.Open = SortedList.new(comparator)
 	return newPathfinder
 end
