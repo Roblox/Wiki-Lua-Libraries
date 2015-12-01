@@ -12,6 +12,7 @@
 --		:Peek(numValues) - Returns the first elements in the SortedList but does not remove them
 --			numValues: The number of items to Peek(), defaults to 1
 --		:GetAsTable() - Returns a table of the elements in the SortedList
+--		:SetComparator(comparator) - Sets the tables comparator to the new value, then sorts it
 --		:Clear() - Removes all values from the SortedList
 --		:Print() - Prints out all the values in the SortedList
 --		:Size() - Returns the size of the SortedList
@@ -34,9 +35,9 @@ end
 
 local function SortCompare(node1, node2, comparator)
 	if comparator(node1, node2) > 0 then
-		return false
-	else
 		return true
+	else
+		return false
 	end
 end
 
@@ -120,6 +121,14 @@ function SortedList:GetAsTable()
 		table.insert(newTable, self[i])
 	end
 	return newTable
+end
+
+function SortedList:SetComparator(comparator)
+	if comparator then
+		self.Compare = comparator
+	end
+	
+	self:Sort()
 end
 
 function SortedList:Clear()
