@@ -73,23 +73,20 @@ function Pathfinder:FindPath(start, goal)
 		end
 		
 		closed[current[1]] = true
-		
+
 		local neighbors = self.Graph:Neighbors(current[1])
 		for i = 1, #neighbors do
 			local n = neighbors[i]
 			if not closed[n] then
 				local ng = gs[current[1]] + self.Graph:GetConnectionCost(current[1], n)
-				if not open:Contains(n) then
+				local contains = open:Contains({n, gs, fs})
+				if not contains or ng < gs[n] then
 					local nh = estimateDistance(n, goal)
 					gs[n] = ng
 					fs[n] = ng+nh
-					open:Add({n, gs, fs})
 					cameFrom[n] = current[1]
-				elseif ng < gs[n] then
-					gs[n] = ng
-					fs[n] = ng + estimateDistance(n, goal)
-					open:Sort()
-					cameFrom[n] = current[1]
+					if not contains then open:Add({n, gs, fs})
+					else open:Sort() end
 				end
 			end
 		end
