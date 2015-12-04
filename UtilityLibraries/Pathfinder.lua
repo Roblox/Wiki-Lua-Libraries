@@ -17,6 +17,8 @@ local SortedList = require(303863742) -- This is the Roblox Wiki asset id for th
 local Pathfinder = {}
 Pathfinder.__index = Pathfinder
 
+-- Should accept nodes as format node = {nodeData, costSoFarTable, estimatedCostTable} 
+-- where costSoFarTable and estiamtedCostTable are indexed by nodeData
 local function Compare(node1, node2)
 	if node1[3][node1[1]] > node2[3][node2[1]] then
 		return -1
