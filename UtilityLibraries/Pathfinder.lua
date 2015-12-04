@@ -78,14 +78,14 @@ function Pathfinder:FindPath(start, goal)
 			if not closed[n] then
 				local ng = gs[current[1]] + self.Graph:GetConnectionCost(current[1], n)
 				if not open:Contains(n) then
-					local nh = estimateDistance(current[1], n)
+					local nh = estimateDistance(n, goal)
 					gs[n] = ng
 					fs[n] = ng+nh
 					open:Add({n, gs, fs})
 					cameFrom[n] = current[1]
 				elseif ng < gs[n] then
 					gs[n] = ng
-					fs[n] = ng + estimateDistance(current[1], n)
+					fs[n] = ng + estimateDistance(n, goal)
 					open:Sort()
 					cameFrom[n] = current[1]
 				end
