@@ -150,6 +150,7 @@ function SortedList:Size()
 end
 
 function SortedList:Contains(value)
+	local ret
 	local success, message = pcall(function()
 		local minIndex = 1
 		local maxIndex = #self
@@ -159,7 +160,8 @@ function SortedList:Contains(value)
 			
 			local compareVal = self.Compare(self[mid], value)
 			if compareVal == 0 then
-				return mid
+				ret = mid
+				return true
 			elseif compareVal > 0 then
 				minIndex = mid + 1
 			else
@@ -168,7 +170,7 @@ function SortedList:Contains(value)
 		end
 	end)
 	
-	return nil
+	return ret
 end
 
 function SortedList:Sort()
