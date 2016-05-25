@@ -130,11 +130,6 @@ function Set:__div(otherSet)
 	return self:Complement(otherSet)
 end
 
--- Shorthand for Set:CartesianProduct, which is usually expressed as A x B.
-function Set:__mul(otherSet)
-	return self:CartesianProduct(otherSet)
-end
-
 function Set:__eq(otherSet)
 	-- Easy check: If they don't have the same number of elements, they cannot be equal.
 	if self.Count ~= otherSet.Count then
