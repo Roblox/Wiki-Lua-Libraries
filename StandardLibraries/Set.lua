@@ -24,30 +24,6 @@ function Set:Add(item)
 	end
 end
 
--- Returns the Cartesian product of two sets.
--- Pairs every item of one set with an item in the other.
--- Errors if called for differing-length sets.
-function Set:CartesianProduct(otherSet)
-	if self.Count ~= otherSet.Count then
-		error("CartesianProduct may only be used on equal-length sets.")
-	end
-	
-	local pairings = {}
-	
-	for item in pairs(self.Items) do
-		table.insert(pairings, { item })
-	end
-	
-	local index = 1
-	for item in pairs(otherSet.Items) do
-		local pairing = pairings[index]
-		table.insert(pairing, item)
-		index = index + 1
-	end
-	
-	return Set.new(unpack(pairings))
-end
-
 -- Creates a shallow copy of the set.
 function Set:Clone()
 	local items = {}
