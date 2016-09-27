@@ -149,6 +149,11 @@ function Set:__sub(otherSet)
 	return self:Complement(otherSet)
 end
 
+-- Shorthand for Set:Intersection, which is sometimes written as A * B
+function Set:__mul(otherSet)
+	return self:Intersection(otherSet)
+end
+
 -- Shorthand for Set:Complement, which is usually expressed as A \ B (read as the relative complement of B in A).
 function Set:__div(otherSet)
 	return self:Complement(otherSet)
