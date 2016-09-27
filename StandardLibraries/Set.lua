@@ -100,7 +100,15 @@ end
 -- Removes an item from a set.
 function Set:Remove(item)
 	if self:Contains(item) then
-		self.Items[item] = nil
+		-- self.Items[item] may not be set even if self:Contains(item) is true
+		-- See notes on Set:Contains
+		for testItem in pairs(self.Items) do
+			if testItem == item then
+				self.Items[testItem] = nil
+				break
+			end
+		end
+
 		self.Count = self.Count - 1
 	end
 end
