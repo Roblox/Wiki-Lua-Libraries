@@ -28,6 +28,18 @@ function Set:Add(item)
 	end
 end
 
+function Set:CartesianProduct(otherSet)
+	local newSet = Set.new()
+
+	for item in self:Items() do
+		for otherItem in otherSet:Items() do
+			newSet:Add({ item, otherItem })
+		end
+	end
+
+	return newSet
+end
+
 -- Creates a shallow copy of the set.
 function Set:Clone()
 	local items = {}
