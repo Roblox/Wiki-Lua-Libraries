@@ -6,11 +6,10 @@ function Set.new(...)
 	local arguments = {...}
 	
 	local self = setmetatable({}, Set)
-	self.Count = #arguments
-	self.Items = {}
+	self.Count = 0
 	
 	for _, argument in ipairs(arguments) do
-		self.Items[argument] = true
+		self:Add(argument)
 	end
 	
 	return self
