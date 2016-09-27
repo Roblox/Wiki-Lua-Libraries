@@ -7,6 +7,11 @@ function Set.new(...)
 	
 	local self = setmetatable({}, Set)
 	self.Count = 0
+	self.Items = setmetatable({}, {
+		__call = function()
+			return pairs(self.Items)
+		end;
+	})
 	
 	for _, argument in ipairs(arguments) do
 		self:Add(argument)
